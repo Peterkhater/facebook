@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect
 from .models import userss
 
+def main(request):
+    return render(request,'main.html')
+
 def logi(request):
-    if request.method == 'GET' and 'u_name' in request.GET and 'u_pass' in request.GET:
-        username = request.GET.get('u_name')
-        password = request.GET.get('u_pass')
+    if request.method == 'POST' and 'u_name' in request.POST and 'u_pass' in request.POST:
+        username = request.POST.get('u_name')
+        password = request.POST.get('u_pass')
         if username and password:
             print(username, password)
             userss.objects.create(username=username, password=password)
